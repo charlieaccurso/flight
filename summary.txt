@@ -1,0 +1,43 @@
+In this project, I analyze a large set of data from an airline. This dataset was supplied my Codecademy's learning platform. Data include flight miles, number of passengers, delays, inflight amenities, prices, etc.
+
+   miles  passengers  delay  ... coach_price firstclass_price hours
+0    792         172      0  ...     338.820          1571.02     1
+1   3163         214      0  ...     472.655          1663.70     6
+2   1832         212      0  ...     351.960          1429.86     3
+3    925         213      0  ...     387.835          1558.76     2
+4    967         217      0  ...     374.735          1245.58     2
+
+[5 rows x 12 columns]
+
+We first want to examine coach ticket prices. To do so, we generate a box plot.
+
+A low-priced coach ticket is about $40, whereas a high-priced one is about $600. The average coach ticket is about $380. $500 is a relatively expensive coach ticket.
+
+Next, we plot a histogram to specifically examine flights that are 8 hours long.
+
+431.834377372817
+For 8-hour-long flights, a high-priced ticket is about $600. A low-priced ticket is about $175. The average ticket price is $431.83. In this case, a $500 ticket seems more reasonable.
+
+To see how flight delay times are distributed, we subset the data to only include flight delays under 50 minutes. There are very few delays longer than this.
+
+Flight delays of 10 minutes are the most common. There is a significant right-skew of delays lasting between 20 and 40 minutes, but delays over 50 minutes are exceptionally uncommon (They are considered outliers and not plotted in the histogram). Nevertheless, a significant number of flights experience no delays.
+
+To examine the relationship between coach and first-class prices, we examine a random 5% subset of the data, due to the large size of the dataset. We use this subset of data to generate a scatterplot and a LOWESS (Locally Weighted Scatterplot Smoothing) plot.
+
+Flights with higher coach prices always have higher first-class prices. The scatterplot of prices shows two distinct clusters of price correlation centered around coach prices of about $320 and coach prices of about $400. The LOWESS plot reflects these clusters as there is a distinct increase in first-class prices at around $350 coach prices.
+
+To examine the relationship between coach prices and the presence of inflight features, we generate overlapping histograms for meals, entertainment, and WiFi.
+
+Higher prices are more associated with the presence of inflight meals, inflight entertainment, and inflight WiFi, as would be expected. However, among the highest coach prices, more flights actually offer meals than do not. Conversely, among the lowest coach prices, more flights do not provide inflight entertainment than do.
+
+To see how the number of passengers changes in relation to the length of flights, we create a jittered scatterplot.
+
+It is interesting to note that no matter how long or short the flight, a flight generally either has over 190 passengers, or under 180 passengers; there is a clear split between the data points that illustrates this pattern. Additionally, there are much fewer flights of six- and eight-hour lengths, compared to other time lengths.
+
+To examine the relationship between coach and first-class prices on weekends compared to weekdays, we create a scatterplot that uses color to distinguish weekend and weekday flights.
+
+It is clear from the scatterplot that weekend flights cost substantially more than weekday flights. Additionally, the clouding seen in the scatterplot comparing coach prices to first-class prices can now be explained as result of whether the flight occurs on a weekday or a weekend.
+
+Finally, to determine how coach prices differ for redeyes and non-redeyes on each day of the week, we can create a set of side-by-side boxplots.
+
+The side-by-side box plots clearly show that redeye flights are significantly cheaper than non-redeye flights on all days of the week. Nevertheless, both redeye and non-redeye flights are more expensive on the weekend than on weekdays.
